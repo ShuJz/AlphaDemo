@@ -1,0 +1,40 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+.ycm_extra_conf.py	../.ycm_extra_conf.py	1;"	kind:file	line:1
+CATKIN_MARKER_FILE	../devel/_setup_util.py	/^CATKIN_MARKER_FILE = '.catkin'$/;"	kind:variable	line:46
+CMAKE_PREFIX_PATH	../devel/_setup_util.py	/^        CMAKE_PREFIX_PATH = '\/home\/jingzhe\/WorkSpace\/ROS\/AlphaDemo\/devel;\/home\/jingzhe\/WorkSpace\/ROS\/Rostutorials_HuCX\/devel;\/opt\/ros\/kinetic'.split(';')$/;"	kind:variable	line:265
+CMAKE_PREFIX_PATH	../devel/_setup_util.py	/^        CMAKE_PREFIX_PATH = os.pathsep.join(CMAKE_PREFIX_PATH)$/;"	kind:variable	line:270
+DirectoryOfThisScript	../.ycm_extra_conf.py	/^def DirectoryOfThisScript():$/;"	kind:function	line:38
+ENV_VAR_SUBFOLDERS	../devel/_setup_util.py	/^ENV_VAR_SUBFOLDERS = {$/;"	kind:variable	line:53
+FlagsForFile	../.ycm_extra_conf.py	/^def FlagsForFile( filename, **kwargs ):$/;"	kind:function	line:90
+GetCompilationInfoForFile	../.ycm_extra_conf.py	/^def GetCompilationInfoForFile( filename ):$/;"	kind:function	line:76
+IS_DARWIN	../devel/_setup_util.py	/^IS_DARWIN = (system == 'Darwin')$/;"	kind:variable	line:49
+IS_WINDOWS	../devel/_setup_util.py	/^IS_WINDOWS = (system == 'Windows')$/;"	kind:variable	line:50
+IsHeaderFile	../.ycm_extra_conf.py	/^def IsHeaderFile( filename ):$/;"	kind:function	line:71
+MakeRelativePathsInFlagsAbsolute	../.ycm_extra_conf.py	/^def MakeRelativePathsInFlagsAbsolute( flags, working_directory ):$/;"	kind:function	line:42
+SOURCE_EXTENSIONS	../.ycm_extra_conf.py	/^SOURCE_EXTENSIONS = [ '.cpp', '.cxx', '.cc', '.c' ]$/;"	kind:variable	line:36
+_get_workspaces	../devel/_setup_util.py	/^def _get_workspaces(environ, include_fuerte=False, include_non_existing=False):$/;"	kind:function	line:114
+_parse_arguments	../devel/_setup_util.py	/^def _parse_arguments(args=None):$/;"	kind:function	line:250
+_prefix_env_variable	../devel/_setup_util.py	/^def _prefix_env_variable(environ, name, paths, subfolders):$/;"	kind:function	line:149
+_rollback_env_variable	../devel/_setup_util.py	/^def _rollback_env_variable(environ, name, subfolders):$/;"	kind:function	line:83
+_setup_util.py	../devel/_setup_util.py	1;"	kind:file	line:1
+alpha_teleop.py	../src/alpha_description/scripts/alpha_teleop.py	1;"	kind:file	line:1
+args	../devel/_setup_util.py	/^            args = _parse_arguments()$/;"	kind:variable	line:259
+assignment	../devel/_setup_util.py	/^def assignment(key, value):$/;"	kind:function	line:175
+base_path	../devel/_setup_util.py	/^        base_path = os.path.dirname(__file__)$/;"	kind:variable	line:267
+comment	../devel/_setup_util.py	/^def comment(msg):$/;"	kind:function	line:182
+compilation_database_folder	../.ycm_extra_conf.py	/^compilation_database_folder = ''$/;"	kind:variable	line:29
+database	../.ycm_extra_conf.py	/^  database = None$/;"	kind:variable	line:34
+database	../.ycm_extra_conf.py	/^  database = ycm_core.CompilationDatabase( compilation_database_folder )$/;"	kind:variable	line:32
+environ	../devel/_setup_util.py	/^        environ = dict(os.environ)$/;"	kind:variable	line:272
+find_env_hooks	../devel/_setup_util.py	/^def find_env_hooks(environ, cmake_prefix_path):$/;"	kind:function	line:198
+flags	../.ycm_extra_conf.py	/^flags = [$/;"	kind:variable	line:6
+lines	../devel/_setup_util.py	/^        lines = []$/;"	kind:variable	line:273
+prepend	../devel/_setup_util.py	/^def prepend(environ, key, prefix):$/;"	kind:function	line:189
+prepend_env_variables	../devel/_setup_util.py	/^def prepend_env_variables(environ, env_var_subfolders, workspaces):$/;"	kind:function	line:129
+rollback_env_variables	../devel/_setup_util.py	/^def rollback_env_variables(environ, env_var_subfolders):$/;"	kind:function	line:62
+system	../devel/_setup_util.py	/^system = platform.system()$/;"	kind:variable	line:48

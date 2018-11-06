@@ -1,0 +1,8 @@
+prefix=/home/jingzhe/WorkSpace/ROS/AlphaDemo/install
+
+Name: alpha_description
+Description: Description of alpha_description
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/jingzhe/WorkSpace/ROS/AlphaDemo/install/lib 
+Requires: 
