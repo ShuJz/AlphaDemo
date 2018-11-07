@@ -5,7 +5,7 @@ from geometry_msgs.msg import Twist
 import sys, select, termios, tty
 
 msg = """
-Control mrobot!
+Control alpha!
 ---------------------------
 Moving around:
    u    i    o
@@ -50,7 +50,7 @@ def getKey():
     termios.tcsetattr(sys.stdin, termios.TCSADRAIN, settings)
     return key
 
-speed = .2
+speed = 5
 turn = 1
 
 def vels(speed,turn):
