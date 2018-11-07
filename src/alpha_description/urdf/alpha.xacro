@@ -161,6 +161,7 @@
             <child link="wheel_${loc}"/>
             <origin xyz="0 ${loc*y_loc} ${z_loc}" rpy="0 0 0" />
             <axis xyz="0 ${-loc} 0" />
+            <dynamics damping="0.7"/>
         </joint>
     </xacro:macro>
     <!-- caster link and joint macro -->

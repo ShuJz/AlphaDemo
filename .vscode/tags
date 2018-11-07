@@ -22,7 +22,7 @@ _parse_arguments	../devel/_setup_util.py	/^def _parse_arguments(args=None):$/;"	
 _prefix_env_variable	../devel/_setup_util.py	/^def _prefix_env_variable(environ, name, paths, subfolders):$/;"	kind:function	line:149
 _rollback_env_variable	../devel/_setup_util.py	/^def _rollback_env_variable(environ, name, subfolders):$/;"	kind:function	line:83
 _setup_util.py	../devel/_setup_util.py	1;"	kind:file	line:1
-alpha_teleop.py	../src/alpha_description/scripts/alpha_teleop.py	1;"	kind:file	line:1
+alpha_teleop.py	../src/alpha_description/src/alpha_teleop.py	1;"	kind:file	line:1
 args	../devel/_setup_util.py	/^            args = _parse_arguments()$/;"	kind:variable	line:259
 assignment	../devel/_setup_util.py	/^def assignment(key, value):$/;"	kind:function	line:175
 base_path	../devel/_setup_util.py	/^        base_path = os.path.dirname(__file__)$/;"	kind:variable	line:267
@@ -33,8 +33,16 @@ database	../.ycm_extra_conf.py	/^  database = ycm_core.CompilationDatabase( comp
 environ	../devel/_setup_util.py	/^        environ = dict(os.environ)$/;"	kind:variable	line:272
 find_env_hooks	../devel/_setup_util.py	/^def find_env_hooks(environ, cmake_prefix_path):$/;"	kind:function	line:198
 flags	../.ycm_extra_conf.py	/^flags = [$/;"	kind:variable	line:6
+getKey	../src/alpha_description/src/alpha_teleop.py	/^def getKey():$/;"	kind:function	line:42
 lines	../devel/_setup_util.py	/^        lines = []$/;"	kind:variable	line:273
+moveBindings	../src/alpha_description/src/alpha_teleop.py	/^moveBindings = {$/;"	kind:variable	line:22
 prepend	../devel/_setup_util.py	/^def prepend(environ, key, prefix):$/;"	kind:function	line:189
 prepend_env_variables	../devel/_setup_util.py	/^def prepend_env_variables(environ, env_var_subfolders, workspaces):$/;"	kind:function	line:129
 rollback_env_variables	../devel/_setup_util.py	/^def rollback_env_variables(environ, env_var_subfolders):$/;"	kind:function	line:62
+speed	../src/alpha_description/src/alpha_teleop.py	/^speed = .2$/;"	kind:variable	line:53
+speedBindings	../src/alpha_description/src/alpha_teleop.py	/^speedBindings={$/;"	kind:variable	line:33
 system	../devel/_setup_util.py	/^system = platform.system()$/;"	kind:variable	line:48
+talker	../src/alpha_description/src/talker.py	/^def talker():$/;"	kind:function	line:42
+talker.py	../src/alpha_description/src/talker.py	1;"	kind:file	line:1
+turn	../src/alpha_description/src/alpha_teleop.py	/^turn = 1$/;"	kind:variable	line:54
+vels	../src/alpha_description/src/alpha_teleop.py	/^def vels(speed,turn):$/;"	kind:function	line:56
