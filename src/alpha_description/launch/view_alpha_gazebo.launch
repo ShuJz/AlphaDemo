@@ -31,6 +31,6 @@
 
     <!-- load robot mode-->
     <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
-          args="-urdf -model mrobot -param robot_description"/> 
+          args="-urdf -model alpha -param robot_description"/> 
 
 </launch>

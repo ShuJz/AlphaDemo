@@ -112,7 +112,7 @@
 
     <!-- motor link and joint macro-->
     <!-- loc = -1: left;    loc = 1: right  -->
-    <xacro:macro name="motor_link" params="parent loc color link_width link_len y_loc z_loc">
+    <xacro:macro name="motor_link" params="loc color link_width link_len y_loc z_loc">
         <link name="motor_${loc}" >
             <visual>
                 <origin xyz="0 0 -${link_width/2}" rpy="0 0 0" />
@@ -131,14 +131,17 @@
         </link>
 
         <joint name="joint_motor_${loc}" type="fixed">
-            <parent link="${parent}"/>
-            <child link="motor_${loc}"/>
+            <parent link="base_link" />
+            <child link="motor_${loc}" />
             <origin xyz="0 ${loc*y_loc} ${z_loc}" rpy="0 0 0" />
         </joint>
+        <gazebo reference="motor_${loc}">
+            <material>Gazebo/Black</material>
+        </gazebo>
     </xacro:macro>
 
     <!-- wheel link and joint macro -->
-    <xacro:macro name="wheel_link" params="parent loc color link_width link_len y_loc z_loc">
+    <xacro:macro name="wheel_link" params="loc color link_width link_len y_loc z_loc">
         <link name="wheel_${loc}" >
             <visual>
                 <origin xyz="0 ${loc*link_len/2} 0" rpy="${M_PI/2} 0 0" />
@@ -157,15 +160,19 @@
         </link>
 
         <joint name="joint_wheel_${loc}" type="continuous">
-            <parent link="${parent}"/>
+            <parent link="motor_${loc}"/>
             <child link="wheel_${loc}"/>
             <origin xyz="0 ${loc*y_loc} ${z_loc}" rpy="0 0 0" />
-            <axis xyz="0 ${-loc} 0" />
-            <dynamics damping="0.7"/>
+            <axis xyz="0 ${-loc} 0" rpy="0 0" />
+            <dynamics damping="0.7"/>>
         </joint>
+        <gazebo reference="wheel_${loc}">
+            <material>Gazebo/Blue</material>
+        </gazebo>
+
     </xacro:macro>
     <!-- caster link and joint macro -->
-    <xacro:macro name="caster_link" params="parent loc color link_width link_len x_loc z_loc">
+    <xacro:macro name="caster_link" params="loc color link_width link_len x_loc z_loc">
         <link name="caster_${loc}" >
             <visual>
                 <origin xyz="0 0 0" rpy="${M_PI/2} 0 0" />
@@ -184,11 +191,29 @@
         </link>
 
         <joint name="joint_caster_${loc}" type="fixed">
-            <parent link="${parent}"/>
+            <parent link="base_link"/>
             <child link="caster_${loc}"/>
             <origin xyz="${loc*x_loc} 0 ${z_loc}" rpy="0 0 0" />
         </joint>
     </xacro:macro>
+    
+    <!-- base_footprint is a fictitious link(frame) that is on the ground right below base_link origin -->
+    
+    <link name="base_footprint">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <box size="0.001 0.001 0.001" />
+            </geometry>
+        </visual>
+        <xacro:inertial_matrix mass="0.00001"/>
+    </link>
+
+    <joint name="base_footprint_joint" type="fixed">
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <parent link="base_footprint"/>
+        <child link="base_link" />
+    </joint>
     
     <!-- base link -->
     <link name="base_link">
@@ -208,14 +233,14 @@
         <xacro:inertial_matrix mass="1"/>
     </link>
     <!-- motor link -->
-    <motor_link parent="base_link" loc="${left}" color="Red" link_width="${motor_width}" link_len="${motor_len}" y_loc="${base_radius-motor_len/2}" z_loc="${wheel_radius+motor_width/2}"/>
-    <motor_link parent="base_link" loc="${right}" color="Red" link_width="${motor_width}" link_len="${motor_len}" y_loc="${base_radius-motor_len/2}" z_loc="${wheel_radius+motor_width/2}"/>
+    <motor_link loc="${left}" color="Red" link_width="${motor_width}" link_len="${motor_len}" y_loc="${base_radius-motor_len/2}" z_loc="${wheel_radius+motor_width/2}"/>
+    <motor_link loc="${right}" color="Red" link_width="${motor_width}" link_len="${motor_len}" y_loc="${base_radius-motor_len/2}" z_loc="${wheel_radius+motor_width/2}"/>
 
     <!-- wheel link -->
-    <wheel_link parent="motor_${left}" loc="${left}" color="Blue" link_width="${wheel_radius}" link_len="${wheel_len}" y_loc="${motor_len/2}" z_loc="${-motor_width/2}"/>
-    <wheel_link parent="motor_${right}" loc="${right}" color="Blue" link_width="${wheel_radius}" link_len="${wheel_len}" y_loc="${motor_len/2}" z_loc="${-motor_width/2}"/>
-    <caster_link parent="base_link" loc="${back}" color="Red" link_width="${wheel_radius}" link_len="${wheel_len}" x_loc="${base_radius/2}" z_loc="${wheel_radius}"/>
-    <caster_link parent="base_link" loc="${front}" color="Red" link_width="${wheel_radius}" link_len="${wheel_len}" x_loc="${base_radius/2}" z_loc="${wheel_radius}"/>
+    <wheel_link loc="${left}" color="Blue" link_width="${wheel_radius}" link_len="${wheel_len}" y_loc="${motor_len/2}" z_loc="${-motor_width/2}"/>
+    <wheel_link loc="${right}" color="Blue" link_width="${wheel_radius}" link_len="${wheel_len}" y_loc="${motor_len/2}" z_loc="${-motor_width/2}"/>
+    <caster_link loc="${back}" color="Red" link_width="${wheel_radius}" link_len="${wheel_len}" x_loc="${base_radius/2}" z_loc="${wheel_radius}"/>
+    <caster_link loc="${front}" color="Red" link_width="${wheel_radius}" link_len="${wheel_len}" x_loc="${base_radius/2}" z_loc="${wheel_radius}"/>
 
     <!-- arm link -->
     <arm_link parent="base_link" number="1" color="Red" link_width="${link1_width}" link_len="${link1_len}" z_loc="${wheel_radius+motor_width/2+base_len}" axis_x="0" axis_y="0" axis_z="1"/>
@@ -225,21 +250,6 @@
     <arm_link parent="link_4" number="5" color="Blue" link_width="${link5_width}" link_len="${link5_len}" z_loc="${link4_len}" axis_x="0" axis_y="1" axis_z="0"/>
     <arm_link parent="link_5" number="6" color="Black" link_width="${link6_width}" link_len="${link6_len}" z_loc="${link5_len}" axis_x="0" axis_y="0" axis_z="1"/>
 
-    <!-- base_footprint is a fictitious link(frame) that is on the ground right below base_link origin -->
-    <link name="base_footprint">
-            <visual>
-                <origin xyz="0 0 0" rpy="0 0 0" />
-                <geometry>
-                    <box size="0.001 0.001 0.001" />
-                </geometry>
-            </visual>
-        </link>
-
-        <joint name="base_footprint_joint" type="fixed">
-            <origin xyz="0 0 0" rpy="0 0 0" />
-            <parent link="base_footprint"/>
-            <child link="base_link" />
-        </joint>
 
     <!-- Gripper link and joint -->
     <link name="gripper_finger_link1">
@@ -295,12 +305,16 @@
     <link name="grasping_frame"/>
 
     <joint name="grasping_frame_joint" type="fixed">
-      <parent link="link_3"/>
+      <parent link="link_6"/>
       <child link="grasping_frame"/>
       <origin xyz="0.08 0 0" rpy="0 0 0"/>
     </joint>
 
     <!-- ////////////   Gazebo   //////////// -->
+    <gazebo reference="base_footprint">
+        <material>Gazebo/White</material>
+        <turnGravityOff>false</turnGravityOff>
+    </gazebo>
     <gazebo reference="base_link">
         <material>Gazebo/White</material>
     </gazebo>
@@ -322,18 +336,6 @@
     <gazebo reference="link_6">
         <material>Gazebo/Blue</material>
     </gazebo>
-    <gazebo reference="motor_1">
-        <material>Gazebo/Black</material>
-    </gazebo>
-    <gazebo reference="motor_-1">
-        <material>Gazebo/Black</material>
-    </gazebo>
-    <gazebo reference="wheel_1">
-        <material>Gazebo/Blue</material>
-    </gazebo>
-    <gazebo reference="wheel_-1">
-        <material>Gazebo/Blue</material>
-    </gazebo>
     <gazebo reference="caster_-1">
         <material>Gazebo/Red</material>
     </gazebo>
@@ -346,7 +348,6 @@
     <gazebo reference="gripper_finger_link2">
         <material>Gazebo/White</material>
     </gazebo>
-
     <!-- Transmissions for ROS Control -->
     <xacro:macro name="transmission_block" params="joint_name">
         <transmission name="tran1">
@@ -367,20 +368,20 @@
     <xacro:transmission_block joint_name="joint_4"/>
     <xacro:transmission_block joint_name="joint_5"/>
     <xacro:transmission_block joint_name="joint_6"/>
-    <xacro:transmission_block joint_name="joint_motor_-1"/>
-    <xacro:transmission_block joint_name="joint_motor_1"/>
-    <xacro:transmission_block joint_name="joint_caster_1"/>
-    <xacro:transmission_block joint_name="joint_caster_-1"/>
-
+    <!-- xacro:transmission_block joint_name="joint_motor_-1"/ -->
+    <!-- xacro:transmission_block joint_name="joint_motor_1"/ -->
+    <!-- xacro:transmission_block joint_name="joint_caster_1"/ -->
+    <!-- xacro:transmission_block joint_name="joint_caster_-1"/ -->
     <xacro:transmission_block joint_name="finger_joint1"/>
+    <!-- xacro:transmission_block joint_name="base_footprint_joint"/ -->
 
     <transmission name="joint_wheel_1_trans">
         <type>transmission_interface/SimpleTransmission</type>
         <joint name="joint_wheel_1">
-            <hardwareInterface>VelocityJointInterface</hardwareInterface>
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
         </joint>
-        <actuator name="motor_1">
-            <hardwareInterface>VelocityJointInterface</hardwareInterface>
+        <actuator name="motor_act_1">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
             <mechanicalReduction>1</mechanicalReduction>
         </actuator>
     </transmission>
@@ -388,18 +389,17 @@
     <transmission name="joint_wheel_-1_trans">
         <type>transmission_interface/SimpleTransmission</type>
         <joint name="joint_wheel_-1">
-            <hardwareInterface>VelocityJointInterface</hardwareInterface>
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
         </joint>
-        <actuator name="motor_-1">
-            <hardwareInterface>VelocityJointInterface</hardwareInterface>
+        <actuator name="motor_act_-1">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
             <mechanicalReduction>1</mechanicalReduction>
         </actuator>
     </transmission>
 
     <!-- ros_control plugin -->
-
     <gazebo>
-        <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
+        <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_plugin.so">
             <rosDebugLevel>Debug</rosDebugLevel>
             <publishWheelTF>true</publishWheelTF>
             <robotNamespace>/Alpha</robotNamespace>
@@ -419,6 +419,37 @@
             <odometryFrame>odom</odometryFrame> 
             <odometryTopic>odom</odometryTopic> 
             <robotBaseFrame>base_footprint</robotBaseFrame>
+        </plugin>
+    </gazebo>
+    <!--
+    <gazebo reference="joint_wheel_1">
+        <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_plugin.so">
+            <rosDebugLevel>Debug</rosDebugLevel>
+            <publishWheelTF>true</publishWheelTF>
+            <robotNamespace>/Alpha</robotNamespace>
+            <publishTf>1</publishTf>
+            <publishWheelJointState>true</publishWheelJointState>
+            <alwaysOn>true</alwaysOn>
+            <updateRate>100.0</updateRate>
+            <legacyMode>true</legacyMode>
+            <leftJoint>joint_wheel_-1</leftJoint>
+            <rightJoint>joint_wheel_1</rightJoint>
+            <wheelSeparation>${base_radius*2}</wheelSeparation>
+            <wheelDiameter>${2*wheel_radius}</wheelDiameter>
+            <broadcastTF>1</broadcastTF>
+            <wheelTorque>30</wheelTorque>
+            <wheelAcceleration>1.8</wheelAcceleration>
+            <commandTopic>cmd_vel</commandTopic>
+            <odometryFrame>odom</odometryFrame> 
+            <odometryTopic>odom</odometryTopic> 
+            <robotBaseFrame>base_footprint</robotBaseFrame>
+        </plugin>
+    </gazebo>
+    -->
+
+    <gazebo>
+        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+            <robotNamespace>/Alpha</robotNamespace>
         </plugin>
     </gazebo> 
 </robot>
