@@ -39,7 +39,7 @@ moveBindings	../src/alpha_description/src/alpha_teleop.py	/^moveBindings = {$/;"
 prepend	../devel/_setup_util.py	/^def prepend(environ, key, prefix):$/;"	kind:function	line:189
 prepend_env_variables	../devel/_setup_util.py	/^def prepend_env_variables(environ, env_var_subfolders, workspaces):$/;"	kind:function	line:129
 rollback_env_variables	../devel/_setup_util.py	/^def rollback_env_variables(environ, env_var_subfolders):$/;"	kind:function	line:62
-speed	../src/alpha_description/src/alpha_teleop.py	/^speed = .2$/;"	kind:variable	line:53
+speed	../src/alpha_description/src/alpha_teleop.py	/^speed = 5$/;"	kind:variable	line:53
 speedBindings	../src/alpha_description/src/alpha_teleop.py	/^speedBindings={$/;"	kind:variable	line:33
 system	../devel/_setup_util.py	/^system = platform.system()$/;"	kind:variable	line:48
 talker	../src/alpha_description/src/talker.py	/^def talker():$/;"	kind:function	line:42

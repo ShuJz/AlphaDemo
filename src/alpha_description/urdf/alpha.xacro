@@ -61,14 +61,14 @@
     <xacro:property name="link6_len" value="0.02" />
 
     <!-- Left gripper -->
-    <xacro:property name="left_gripper_len" value="0.08" />
+    <xacro:property name="left_gripper_len" value="0.01" />
     <xacro:property name="left_gripper_width" value="0.01" />
-    <xacro:property name="left_gripper_height" value="0.01" />
+    <xacro:property name="left_gripper_height" value="0.08" />
 
     <!-- Right gripper -->
-    <xacro:property name="right_gripper_len" value="0.08" />
+    <xacro:property name="right_gripper_len" value="0.01" />
     <xacro:property name="right_gripper_width" value="0.01" />
-    <xacro:property name="right_gripper_height" value="0.01" />
+    <xacro:property name="right_gripper_height" value="0.08" />
 
     <!-- Gripper frame -->
     <xacro:property name="grasp_frame_radius" value="0.001" />
@@ -275,14 +275,14 @@
     <!-- Gripper link and joint -->
     <link name="gripper_finger_link1">
         <visual>
-            <origin xyz="0.04 -0.03 0"/>
+            <origin xyz="0 0.03 ${left_gripper_height/2}"/>
             <geometry>
                 <box size="${left_gripper_len} ${left_gripper_width} ${left_gripper_height}" />
             </geometry>
             <material name="White" />
         </visual>
         <collision>
-            <origin xyz="0.04 -0.03 0"/>
+            <origin xyz="0 0.03 ${left_gripper_height/2}"/>
             <geometry>
                 <box size="${left_gripper_len} ${left_gripper_width} ${left_gripper_height}" />
             </geometry>
@@ -292,14 +292,14 @@
 
     <link name="gripper_finger_link2">
         <visual>
-            <origin xyz="0.04 -0.03 0"/>
+            <origin xyz="0 -0.03 ${right_gripper_height/2}"/>
             <geometry>
                 <box size="${right_gripper_len} ${right_gripper_width} ${right_gripper_height}" />
             </geometry>
             <material name="White" />
         </visual>
         <collision>
-            <origin xyz="0.04 -0.03 0"/>
+            <origin xyz="0 -0.03 ${right_gripper_height/2}"/>
             <geometry>
                 <box size="${right_gripper_len} ${right_gripper_width} ${right_gripper_height}" />
             </geometry>
@@ -312,7 +312,7 @@
         <child link="gripper_finger_link1"/>
         <origin xyz="0.0 0 ${link6_len}" />
         <axis xyz="0 1 0" />
-        <limit effort="100" lower="0.03" upper="0.06" velocity="1.0"/>
+        <limit effort="100" lower="-0.05" upper="0" velocity="1.0"/>
         <dynamics damping="50" friction="1"/>
     </joint>
 

@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: alpha_description
+    relative_path: urdf/alpha.xacro
+    xacro_args: "--inorder "
+  SRDF:
+    relative_path: config/alpha.srdf
+  CONFIG:
+    author_name: Jingzhe Shu
+    author_email: shujingzhe1996@gmail.com
+    generated_timestamp: 1541677610
