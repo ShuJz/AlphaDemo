@@ -126,7 +126,7 @@
             <child link="link_${number}"/>
             <origin xyz="0 0 ${z_loc}" rpy="0 0 0" />
             <axis xyz="${axis_x} ${axis_y} ${axis_z}" />
-            <limit effort="300" velocity="1" lower="${-M_PI/2}" upper="${M_PI/2}" />
+            <limit effort="300" velocity="1" lower="${-M_PI}" upper="${M_PI}" />
             <dynamics damping="50" friction="1"/>
         </joint>
     </xacro:macro>
@@ -179,18 +179,6 @@
             </collision>
             <xacro:cylinder_inertial_matrix m="1" r="${link_width}" h="${link_len}"/>
         </link>
-
-        <joint name="joint_wheel_${loc}" type="continuous">
-            <parent link="motor_${loc}"/>
-            <child link="wheel_${loc}"/>
-            <origin xyz="0 ${(loc-1)*y_loc} ${z_loc}" rpy="0 0 0" />
-            <axis xyz="0 1 0" rpy="0 0" />
-            <limit effort="100" velocity="100"/>
-            <joint_properties damping="0.0" friction="10.0"/>
-        </joint>
-        <gazebo reference="wheel_${loc}">
-            <material>Gazebo/Blue</material>
-        </gazebo>
 
     </xacro:macro>
     <!-- caster link and joint macro -->
@@ -260,6 +248,27 @@
     <!-- wheel link -->
     <wheel_link loc="${left}" color="Blue" link_width="${wheel_radius}" link_len="${wheel_len}" y_loc="${motor_len/2}" z_loc="${-motor_width/2}"/>
     <wheel_link loc="${right}" color="Blue" link_width="${wheel_radius}" link_len="${wheel_len}" y_loc="${motor_len/2}" z_loc="${-motor_width/2}"/>
+
+    <joint name="base_l_wheel_joint" type="continuous">
+        <parent link="motor_0"/>
+        <child link="wheel_0"/>
+        <origin xyz="0 ${(-1)*motor_len/2} ${-motor_width/2}" rpy="0 0 0" />
+        <axis xyz="0 1 0" rpy="0 0" />
+        <limit effort="100" velocity="100"/>
+        <joint_properties damping="0.0" friction="10.0"/>
+    </joint>
+
+    <joint name="base_r_wheel_joint" type="continuous">
+        <parent link="motor_2"/>
+        <child link="wheel_2"/>
+        <origin xyz="0 ${motor_len/2} ${-motor_width/2}" rpy="0 0 0" />
+        <axis xyz="0 1 0" rpy="0 0" />
+        <limit effort="100" velocity="100"/>
+        <joint_properties damping="0.0" friction="10.0"/>
+    </joint>
+
+
+
     <caster_link loc="${back}" color="Red" link_width="${wheel_radius}" x_loc="${base_radius}" z_loc="${wheel_radius}"/>
     <caster_link loc="${front}" color="Red" link_width="${wheel_radius}" x_loc="${base_radius}" z_loc="${wheel_radius}"/>
 
@@ -396,9 +405,9 @@
     <xacro:transmission_block joint_name="finger_joint1"/>
     <!-- xacro:transmission_block joint_name="base_footprint_joint"/ -->
 
-    <transmission name="joint_wheel_2_trans">
+    <transmission name="base_r_wheel_joint_trans">
         <type>transmission_interface/SimpleTransmission</type>
-        <joint name="joint_wheel_2">
+        <joint name="base_r_wheel_joint">
             <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
         </joint>
         <actuator name="motor_act_2">
@@ -407,9 +416,9 @@
         </actuator>
     </transmission>
 
-    <transmission name="joint_wheel_0_trans">
+    <transmission name="base_l_wheel_joint_trans">
         <type>transmission_interface/SimpleTransmission</type>
-        <joint name="joint_wheel_0">
+        <joint name="base_l_wheel_joint">
             <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
         </joint>
         <actuator name="motor_act_0">
@@ -422,6 +431,9 @@
     <gazebo>
         <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
             <robotNamespace>/Alpha</robotNamespace>
+            <odometryFrame>odom</odometryFrame> 
+            <odometryTopic>odom</odometryTopic> 
+            <robotBaseFrame>base_footprint</robotBaseFrame>
         </plugin>
     </gazebo> 
 
@@ -435,8 +447,8 @@
             <alwaysOn>true</alwaysOn>
             <updateRate>100.0</updateRate>
             <legacyMode>true</legacyMode>
-            <leftJoint>joint_wheel_0</leftJoint>
-            <rightJoint>joint_wheel_2</rightJoint>
+            <leftJoint>base_l_wheel_joint</leftJoint>
+            <rightJoint>base_r_wheel_joint</rightJoint>
             <wheelSeparation>${base_radius*2}</wheelSeparation>
             <wheelDiameter>${2*wheel_radius}</wheelDiameter>
             <broadcastTF>1</broadcastTF>
@@ -448,7 +460,5 @@
             <robotBaseFrame>base_footprint</robotBaseFrame>
         </plugin>
     </gazebo>
-
-    
 
 </robot>

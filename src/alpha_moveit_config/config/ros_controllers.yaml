@@ -18,8 +18,6 @@ alpha:
       - joint_5
       - joint_6
       - finger_joint1
-      - joint_wheel_0
-      - joint_wheel_2
     sim_control_mode: 1  # 0: position, 1: velocity
 # Publish all joint states
 # Creates the /joint_states topic necessary in ROS

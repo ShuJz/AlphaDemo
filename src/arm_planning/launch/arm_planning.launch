@@ -27,10 +27,15 @@
     </node>
 
     <node pkg="robot_state_publisher" type="robot_state_publisher" name="rob_st_pub" />
+    
+    <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" ></node> 
+
 
     <include file="$(find alpha_moveit_config)/launch/move_group.launch" />
 
     <!-- 启动rviz可视化界面 -->
+
     <node name="rviz" pkg="rviz" type="rviz" args="-d $(find arm_planning)/config/pick_and_place.rviz" required="true" />
+
 
 </launch>

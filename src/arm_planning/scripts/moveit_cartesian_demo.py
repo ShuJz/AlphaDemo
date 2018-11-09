@@ -49,10 +49,11 @@ class MoveItCartesianDemo:
             waypoints.append(start_pose)
             
         # 设置第二个路点数据，并加入路点列表
-        # 第二个路点需要向后运动0.2米，向右运动0.2米
+        # 第二个路点需要向后运动0.02米，向右运动0.02米
         wpose = deepcopy(start_pose)
-        wpose.position.x -= 0.2
-        wpose.position.y -= 0.2
+        wpose.position.x -= 0.1
+        wpose.position.y -= 0.1
+        wpose.position.z -= 0.1
 
         if cartesian:
             waypoints.append(deepcopy(wpose))
@@ -62,9 +63,9 @@ class MoveItCartesianDemo:
             rospy.sleep(1)
          
         # 设置第三个路点数据，并加入路点列表
-        wpose.position.x += 0.05
-        wpose.position.y += 0.15
-        wpose.position.z -= 0.15
+        wpose.position.x += 0.005
+        wpose.position.y += 0.015
+        wpose.position.z -= 0.015
           
         if cartesian:
             waypoints.append(deepcopy(wpose))

@@ -10,7 +10,3 @@ controller_list:
   - name: fake_gripper_controller
     joints:
       - finger_joint1
-  - name: fake_wheel_controller
-    joints:
-      - joint_wheel_0
-      - joint_wheel_2

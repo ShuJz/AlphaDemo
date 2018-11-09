@@ -149,7 +149,7 @@ arm:
   projection_evaluator: joints(joint_1,joint_2)
   longest_valid_segment_fraction: 0.005
 gripper:
-  default_planner_config: None
+  default_planner_config: ""
   planner_configs:
     - SBL
     - EST
@@ -174,31 +174,3 @@ gripper:
     - LazyPRMstar
     - SPARS
     - SPARStwo
-wheel:
-  default_planner_config: None
-  planner_configs:
-    - SBL
-    - EST
-    - LBKPIECE
-    - BKPIECE
-    - KPIECE
-    - RRT
-    - RRTConnect
-    - RRTstar
-    - TRRT
-    - PRM
-    - PRMstar
-    - FMT
-    - BFMT
-    - PDST
-    - STRIDE
-    - BiTRRT
-    - LBTRRT
-    - BiEST
-    - ProjEST
-    - LazyPRM
-    - LazyPRMstar
-    - SPARS
-    - SPARStwo
-  projection_evaluator: joints(joint_wheel_0,joint_wheel_2)
-  longest_valid_segment_fraction: 0.005

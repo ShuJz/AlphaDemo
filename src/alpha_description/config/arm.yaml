@@ -6,9 +6,9 @@ joints: {
     joint_5: {id: 5, max_angle: 150.1, min_angle: -150.1, max_speed: 90},
     joint_6: {id: 6, max_angle: 360, min_angle: -360, max_speed: 90},
     finger_joint1: {id: 7, max_speed: 90},
-    joint_wheel_0: {id: 8, max_speed: 90},
-    joint_wheel_2: {id: 9, max_speed: 90},
+    base_l_wheel_joint: {id: 8, max_speed: 90},
+    base_r_wheel_joint: {id: 9, max_speed: 90},
 }
 controllers: {
-    arm_controller: {type: follow_controller, joints: [joint_1, joint_2, joint_3, joint_4, joint_5, joint_6], action_name: arm_controller/follow_joint_trajectory, onboard: False }   
+    arm_controller: {type: follow_controller, joints: [joint_1, joint_2, joint_3, joint_4, joint_5, joint_6], action_name: arm_controller/follow_joint_trajectory, onboard: False }
 }
