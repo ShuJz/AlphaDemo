@@ -16,7 +16,15 @@ IS_DARWIN	../devel/_setup_util.py	/^IS_DARWIN = (system == 'Darwin')$/;"	kind:va
 IS_WINDOWS	../devel/_setup_util.py	/^IS_WINDOWS = (system == 'Windows')$/;"	kind:variable	line:50
 IsHeaderFile	../.ycm_extra_conf.py	/^def IsHeaderFile( filename ):$/;"	kind:function	line:71
 MakeRelativePathsInFlagsAbsolute	../.ycm_extra_conf.py	/^def MakeRelativePathsInFlagsAbsolute( flags, working_directory ):$/;"	kind:function	line:42
+MoveItCartesianDemo	../src/arm_planning/scripts/moveit_cartesian_demo.py	/^class MoveItCartesianDemo:$/;"	kind:class	line:10
+MoveItFkDemo	../src/arm_planning/scripts/moveit_fk_demo.py	/^class MoveItFkDemo:$/;"	kind:class	line:8
+MoveItIkDemo	../src/arm_planning/scripts/moveit_ik_demo.py	/^class MoveItIkDemo:$/;"	kind:class	line:12
 SOURCE_EXTENSIONS	../.ycm_extra_conf.py	/^SOURCE_EXTENSIONS = [ '.cpp', '.cxx', '.cc', '.c' ]$/;"	kind:variable	line:36
+TrajectoryDemo	../src/alpha_description/src/trajectory_demo.py	/^class TrajectoryDemo():$/;"	kind:class	line:10
+__init__	../src/alpha_description/src/trajectory_demo.py	/^    def __init__(self):$/;"	kind:member	line:11
+__init__	../src/arm_planning/scripts/moveit_cartesian_demo.py	/^    def __init__(self):$/;"	kind:member	line:11
+__init__	../src/arm_planning/scripts/moveit_fk_demo.py	/^    def __init__(self):$/;"	kind:member	line:9
+__init__	../src/arm_planning/scripts/moveit_ik_demo.py	/^    def __init__(self):$/;"	kind:member	line:13
 _get_workspaces	../devel/_setup_util.py	/^def _get_workspaces(environ, include_fuerte=False, include_non_existing=False):$/;"	kind:function	line:114
 _parse_arguments	../devel/_setup_util.py	/^def _parse_arguments(args=None):$/;"	kind:function	line:250
 _prefix_env_variable	../devel/_setup_util.py	/^def _prefix_env_variable(environ, name, paths, subfolders):$/;"	kind:function	line:149
@@ -36,6 +44,9 @@ flags	../.ycm_extra_conf.py	/^flags = [$/;"	kind:variable	line:6
 getKey	../src/alpha_description/src/alpha_teleop.py	/^def getKey():$/;"	kind:function	line:42
 lines	../devel/_setup_util.py	/^        lines = []$/;"	kind:variable	line:273
 moveBindings	../src/alpha_description/src/alpha_teleop.py	/^moveBindings = {$/;"	kind:variable	line:22
+moveit_cartesian_demo.py	../src/arm_planning/scripts/moveit_cartesian_demo.py	1;"	kind:file	line:1
+moveit_fk_demo.py	../src/arm_planning/scripts/moveit_fk_demo.py	1;"	kind:file	line:1
+moveit_ik_demo.py	../src/arm_planning/scripts/moveit_ik_demo.py	1;"	kind:file	line:1
 prepend	../devel/_setup_util.py	/^def prepend(environ, key, prefix):$/;"	kind:function	line:189
 prepend_env_variables	../devel/_setup_util.py	/^def prepend_env_variables(environ, env_var_subfolders, workspaces):$/;"	kind:function	line:129
 rollback_env_variables	../devel/_setup_util.py	/^def rollback_env_variables(environ, env_var_subfolders):$/;"	kind:function	line:62
@@ -44,5 +55,6 @@ speedBindings	../src/alpha_description/src/alpha_teleop.py	/^speedBindings={$/;"
 system	../devel/_setup_util.py	/^system = platform.system()$/;"	kind:variable	line:48
 talker	../src/alpha_description/src/talker.py	/^def talker():$/;"	kind:function	line:42
 talker.py	../src/alpha_description/src/talker.py	1;"	kind:file	line:1
+trajectory_demo.py	../src/alpha_description/src/trajectory_demo.py	1;"	kind:file	line:1
 turn	../src/alpha_description/src/alpha_teleop.py	/^turn = 1$/;"	kind:variable	line:54
 vels	../src/alpha_description/src/alpha_teleop.py	/^def vels(speed,turn):$/;"	kind:function	line:56

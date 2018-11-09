@@ -9,6 +9,7 @@
 
     <node name="arbotix" pkg="arbotix_python" type="arbotix_driver" output="screen">
         <rosparam file="$(find alpha_description)/config/arm.yaml" command="load" />
+        <rosparam file="$(find alpha_description)/config/wheel.yaml" command="load" />
         <param name="sim" value="true"/>
     </node>
 

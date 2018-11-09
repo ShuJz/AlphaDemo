@@ -59,7 +59,22 @@ Visualization Manager:
         Expand Link Details: false
         Expand Tree: false
         Link Tree Style: Links in Alphabetic Order
+        base_footprint:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
         base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        caster_0:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        caster_2:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -108,22 +123,22 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
-        motor_-1:
+        motor_0:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        motor_1:
+        motor_2:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        wheel_-1:
+        wheel_0:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        wheel_1:
+        wheel_2:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -138,7 +153,7 @@ Visualization Manager:
   Global Options:
     Background Color: 48; 48; 48
     Default Light: true
-    Fixed Frame: base_link
+    Fixed Frame: odom
     Frame Rate: 30
   Name: root
   Tools:
@@ -159,7 +174,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 2.47318029
+      Distance: 8.60308266
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.0599999987
         Stereo Focal Distance: 1

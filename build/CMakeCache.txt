@@ -280,11 +280,29 @@ alpha_description_BINARY_DIR:STATIC=/home/jingzhe/WorkSpace/ROS/AlphaDemo/build/
 //Value Computed by CMake
 alpha_description_SOURCE_DIR:STATIC=/home/jingzhe/WorkSpace/ROS/AlphaDemo/src/alpha_description
 
+//Value Computed by CMake
+alpha_moveit_config_BINARY_DIR:STATIC=/home/jingzhe/WorkSpace/ROS/AlphaDemo/build/alpha_moveit_config
+
+//Value Computed by CMake
+alpha_moveit_config_SOURCE_DIR:STATIC=/home/jingzhe/WorkSpace/ROS/AlphaDemo/src/alpha_moveit_config
+
+//Value Computed by CMake
+arm_planning_BINARY_DIR:STATIC=/home/jingzhe/WorkSpace/ROS/AlphaDemo/build/arm_planning
+
+//Value Computed by CMake
+arm_planning_SOURCE_DIR:STATIC=/home/jingzhe/WorkSpace/ROS/AlphaDemo/src/arm_planning
+
 //The directory containing a CMake configuration file for catkin.
 catkin_DIR:PATH=/opt/ros/kinetic/share/catkin/cmake
 
+//The directory containing a CMake configuration file for control_msgs.
+control_msgs_DIR:PATH=/opt/ros/kinetic/share/control_msgs/cmake
+
 //The directory containing a CMake configuration file for cpp_common.
 cpp_common_DIR:PATH=/opt/ros/kinetic/share/cpp_common/cmake
+
+//The directory containing a CMake configuration file for diagnostic_msgs.
+diagnostic_msgs_DIR:PATH=/opt/ros/kinetic/share/diagnostic_msgs/cmake
 
 //The directory containing a CMake configuration file for gencpp.
 gencpp_DIR:PATH=/opt/ros/kinetic/share/gencpp/cmake
@@ -347,8 +365,14 @@ gtest_force_shared_crt:BOOL=OFF
 //Dependencies for the target
 gtest_main_LIB_DEPENDS:STATIC=general;-lpthread;general;gtest;
 
+//The directory containing a CMake configuration file for household_objects_database_msgs.
+household_objects_database_msgs_DIR:PATH=/opt/ros/kinetic/share/household_objects_database_msgs/cmake
+
 //Path to a library.
 lib:FILEPATH=/opt/ros/kinetic/lib/librosconsole_bridge.so
+
+//The directory containing a CMake configuration file for manipulation_msgs.
+manipulation_msgs_DIR:PATH=/opt/ros/kinetic/share/manipulation_msgs/cmake
 
 //The directory containing a CMake configuration file for message_filters.
 message_filters_DIR:PATH=/opt/ros/kinetic/share/message_filters/cmake
@@ -358,6 +382,15 @@ message_generation_DIR:PATH=/opt/ros/kinetic/share/message_generation/cmake
 
 //The directory containing a CMake configuration file for message_runtime.
 message_runtime_DIR:PATH=/opt/ros/kinetic/share/message_runtime/cmake
+
+//The directory containing a CMake configuration file for moveit_msgs.
+moveit_msgs_DIR:PATH=/opt/ros/kinetic/share/moveit_msgs/cmake
+
+//The directory containing a CMake configuration file for object_recognition_msgs.
+object_recognition_msgs_DIR:PATH=/opt/ros/kinetic/share/object_recognition_msgs/cmake
+
+//The directory containing a CMake configuration file for octomap_msgs.
+octomap_msgs_DIR:PATH=/opt/ros/kinetic/share/octomap_msgs/cmake
 
 //The directory containing a CMake configuration file for rosconsole.
 rosconsole_DIR:PATH=/opt/ros/kinetic/share/rosconsole/cmake
@@ -389,8 +422,17 @@ rostime_DIR:PATH=/opt/ros/kinetic/share/rostime/cmake
 //The directory containing a CMake configuration file for sensor_msgs.
 sensor_msgs_DIR:PATH=/opt/ros/kinetic/share/sensor_msgs/cmake
 
+//The directory containing a CMake configuration file for shape_msgs.
+shape_msgs_DIR:PATH=/opt/ros/kinetic/share/shape_msgs/cmake
+
+//The directory containing a CMake configuration file for std_mags.
+std_mags_DIR:PATH=std_mags_DIR-NOTFOUND
+
 //The directory containing a CMake configuration file for std_msgs.
 std_msgs_DIR:PATH=/opt/ros/kinetic/share/std_msgs/cmake
+
+//The directory containing a CMake configuration file for std_srvs.
+std_srvs_DIR:PATH=/opt/ros/kinetic/share/std_srvs/cmake
 
 //The directory containing a CMake configuration file for tf2.
 tf2_DIR:PATH=/opt/ros/kinetic/share/tf2/cmake
@@ -406,6 +448,9 @@ tf2_ros_DIR:PATH=/opt/ros/kinetic/share/tf2_ros/cmake
 
 //The directory containing a CMake configuration file for tf.
 tf_DIR:PATH=/opt/ros/kinetic/share/tf/cmake
+
+//The directory containing a CMake configuration file for trajectory_msgs.
+trajectory_msgs_DIR:PATH=/opt/ros/kinetic/share/trajectory_msgs/cmake
 
 //The directory containing a CMake configuration file for urdf.
 urdf_DIR:PATH=/opt/ros/kinetic/share/urdf/cmake
@@ -518,7 +563,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=4
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=6
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
