@@ -7,6 +7,7 @@ Panels:
         - /Global Options1
         - /Status1
         - /MotionPlanning1
+        - /MotionPlanning1/Planned Path1
       Splitter Ratio: 0.742560029
     Tree Height: 399
   - Class: rviz/Help
@@ -304,7 +305,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/XYOrbit
-      Distance: 2.99650002
+      Distance: 1.53347528
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.0599999987
         Stereo Focal Distance: 1

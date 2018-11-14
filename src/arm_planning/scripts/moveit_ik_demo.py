@@ -31,13 +31,14 @@ class MoveItIkDemo:
         arm.allow_replanning(True)
         
         # 设置位置(单位：米)和姿态（单位：弧度）的允许误差
-        arm.set_goal_position_tolerance(0.01)
+        arm.set_goal_position_tolerance(0.05)
         arm.set_goal_orientation_tolerance(0.05)
         
         # 控制机械臂先回到初始化位置
         arm.set_named_target('home')
-        arm.go()
-        rospy.sleep(2)
+        traj = arm.plan()
+        arm.execute(traj)
+        rospy.sleep(5)
                
         # 设置机械臂工作空间中的目标位姿，位置使用x、y、z坐标描述，
         # 姿态使用四元数描述，基于base_link坐标系
@@ -45,40 +46,50 @@ class MoveItIkDemo:
         target_pose = PoseStamped()
         target_pose.header.frame_id = reference_frame
         target_pose.header.stamp = rospy.Time.now()     
-        target_pose.pose.position.x = 0.0191995
-        target_pose.pose.position.y = 0.0213868
-        target_pose.pose.position.z = 0.0120436
-        target_pose.pose.orientation.x = 0.911822
-        target_pose.pose.orientation.y = -0.269758
-        target_pose.pose.orientation.z = 0.285694
-        target_pose.pose.orientation.w = -0.0293653
+        target_pose.pose.position.x = 0.03
+        target_pose.pose.position.y = 0.03
+        target_pose.pose.position.z = 0.08
+        # target_pose.pose.orientation.x = 0.211822
+        # target_pose.pose.orientation.y = 0.269758
+        # target_pose.pose.orientation.z = 0.285694
+        # target_pose.pose.orientation.w = -0.0293653
+        quaternion = quaternion_from_euler(-0.5, 0, 1.5707)
+        target_pose.pose.orientation.x = quaternion[0]
+        target_pose.pose.orientation.y = quaternion[1]
+        target_pose.pose.orientation.z = quaternion[2]
+        target_pose.pose.orientation.w = quaternion[3]
         
         # 设置机器臂当前的状态作为运动初始状态
         arm.set_start_state_to_current_state()
         
         # 设置机械臂终端运动的目标位姿
-        #arm.set_pose_target(target_pose, end_effector_link)
+        arm.set_pose_target(target_pose, end_effector_link)
         
         # 规划运动路径
-        #traj = arm.plan()
+        traj = arm.plan()
         
         # 按照规划的运动路径控制机械臂运动
-        #arm.execute(traj)
-        #rospy.sleep(1)
+        arm.execute(traj)
+        rospy.sleep(10)
          
-        # 控制机械臂终端向右移动5cm
-        arm.shift_pose_target(1, -0.05, end_effector_link)
-        arm.go()
-        rospy.sleep(1)
+        # 控制机械臂终端向右移动3cm
+        arm.shift_pose_target(1, -0.03, end_effector_link)
+        traj = arm.plan()
+        arm.execute(traj)
+        rospy.sleep(10)
   
         # 控制机械臂终端反向旋转90度
+        arm.set_start_state_to_current_state()
         arm.shift_pose_target(5, -1.57, end_effector_link)
-        arm.go()
-        rospy.sleep(1)
+        traj = arm.plan()
+        arm.execute(traj)
+        rospy.sleep(10)
            
         # 控制机械臂回到初始化位置
         arm.set_named_target('home')
-        arm.go()
+        traj = arm.plan()
+        arm.execute(traj)
+        rospy.sleep(10)
 
         # 关闭并退出moveit
         moveit_commander.roscpp_shutdown()

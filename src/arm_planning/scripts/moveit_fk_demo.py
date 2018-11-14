@@ -26,12 +26,12 @@ class MoveItFkDemo:
         # 控制机械臂先回到初始化位置
         arm.set_named_target('home')
         arm.go()
-        rospy.sleep(2)
+        rospy.sleep(10)
          
         # 设置夹爪的目标位置，并控制夹爪运动
-        gripper.set_joint_value_target([-0.01])
+        gripper.set_joint_value_target([-0.04])
         gripper.go()
-        rospy.sleep(1)
+        rospy.sleep(5)
          
         # 设置机械臂的目标位置，使用六轴的位置数据进行描述（单位：弧度）
         joint_positions = [-0.0867, -1.274, 0.02832, 0.0820, -1.273, -0.003]

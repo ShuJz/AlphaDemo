@@ -1,0 +1,16 @@
+<launch>
+
+    <!-- 启动Gazebo  -->
+    <include file="$(find alpha_gazebo)/launch/alpha_world.launch" />   
+
+    <!-- 启动Gazebo controllers -->
+    <include file="$(find alpha_gazebo)/launch/arm_gazebo_controller.launch" />   
+    
+    <!-- run node joint_state_publisher, publish joint state  -->
+    
+    <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" >
+    <remap from="/joint_states" to="/alpha/joint_states" />
+    </node> 
+    
+
+</launch>

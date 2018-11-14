@@ -6,11 +6,16 @@
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
 .ycm_extra_conf.py	../.ycm_extra_conf.py	1;"	kind:file	line:1
 CATKIN_MARKER_FILE	../devel/_setup_util.py	/^CATKIN_MARKER_FILE = '.catkin'$/;"	kind:variable	line:46
-CMAKE_PREFIX_PATH	../devel/_setup_util.py	/^        CMAKE_PREFIX_PATH = '\/home\/jingzhe\/WorkSpace\/ROS\/AlphaDemo\/devel;\/home\/jingzhe\/WorkSpace\/ROS\/Rostutorials_HuCX\/devel;\/opt\/ros\/kinetic'.split(';')$/;"	kind:variable	line:265
+CMAKE_PREFIX_PATH	../devel/_setup_util.py	/^        CMAKE_PREFIX_PATH = '\/home\/jingzhe\/ws_moveit\/devel;\/opt\/ros\/kinetic'.split(';')$/;"	kind:variable	line:265
 CMAKE_PREFIX_PATH	../devel/_setup_util.py	/^        CMAKE_PREFIX_PATH = os.pathsep.join(CMAKE_PREFIX_PATH)$/;"	kind:variable	line:270
 DirectoryOfThisScript	../.ycm_extra_conf.py	/^def DirectoryOfThisScript():$/;"	kind:function	line:38
 ENV_VAR_SUBFOLDERS	../devel/_setup_util.py	/^ENV_VAR_SUBFOLDERS = {$/;"	kind:variable	line:53
 FlagsForFile	../.ycm_extra_conf.py	/^def FlagsForFile( filename, **kwargs ):$/;"	kind:function	line:90
+GRIPPER_CLOSED	../src/arm_planning/scripts/moveit_pick_and_place_demo.py	/^GRIPPER_CLOSED = [0.05]$/;"	kind:variable	line:21
+GRIPPER_FRAME	../src/arm_planning/scripts/moveit_pick_and_place_demo.py	/^GRIPPER_FRAME = 'grasping_frame'$/;"	kind:variable	line:18
+GRIPPER_OPEN	../src/arm_planning/scripts/moveit_pick_and_place_demo.py	/^GRIPPER_OPEN = [0]$/;"	kind:variable	line:20
+GROUP_NAME_ARM	../src/arm_planning/scripts/moveit_pick_and_place_demo.py	/^GROUP_NAME_ARM = 'arm'$/;"	kind:variable	line:15
+GROUP_NAME_GRIPPER	../src/arm_planning/scripts/moveit_pick_and_place_demo.py	/^GROUP_NAME_GRIPPER = 'gripper'$/;"	kind:variable	line:16
 GetCompilationInfoForFile	../.ycm_extra_conf.py	/^def GetCompilationInfoForFile( filename ):$/;"	kind:function	line:76
 IS_DARWIN	../devel/_setup_util.py	/^IS_DARWIN = (system == 'Darwin')$/;"	kind:variable	line:49
 IS_WINDOWS	../devel/_setup_util.py	/^IS_WINDOWS = (system == 'Windows')$/;"	kind:variable	line:50
@@ -19,12 +24,17 @@ MakeRelativePathsInFlagsAbsolute	../.ycm_extra_conf.py	/^def MakeRelativePathsIn
 MoveItCartesianDemo	../src/arm_planning/scripts/moveit_cartesian_demo.py	/^class MoveItCartesianDemo:$/;"	kind:class	line:10
 MoveItFkDemo	../src/arm_planning/scripts/moveit_fk_demo.py	/^class MoveItFkDemo:$/;"	kind:class	line:8
 MoveItIkDemo	../src/arm_planning/scripts/moveit_ik_demo.py	/^class MoveItIkDemo:$/;"	kind:class	line:12
+MoveItObstaclesDemo	../src/arm_planning/scripts/moveit_obstacles_demo.py	/^class MoveItObstaclesDemo:$/;"	kind:class	line:10
+MoveItPickAndPlaceDemo	../src/arm_planning/scripts/moveit_pick_and_place_demo.py	/^class MoveItPickAndPlaceDemo:$/;"	kind:class	line:25
+REFERENCE_FRAME	../src/arm_planning/scripts/moveit_pick_and_place_demo.py	/^REFERENCE_FRAME = 'base_link'$/;"	kind:variable	line:23
 SOURCE_EXTENSIONS	../.ycm_extra_conf.py	/^SOURCE_EXTENSIONS = [ '.cpp', '.cxx', '.cc', '.c' ]$/;"	kind:variable	line:36
 TrajectoryDemo	../src/alpha_description/src/trajectory_demo.py	/^class TrajectoryDemo():$/;"	kind:class	line:10
 __init__	../src/alpha_description/src/trajectory_demo.py	/^    def __init__(self):$/;"	kind:member	line:11
 __init__	../src/arm_planning/scripts/moveit_cartesian_demo.py	/^    def __init__(self):$/;"	kind:member	line:11
 __init__	../src/arm_planning/scripts/moveit_fk_demo.py	/^    def __init__(self):$/;"	kind:member	line:9
 __init__	../src/arm_planning/scripts/moveit_ik_demo.py	/^    def __init__(self):$/;"	kind:member	line:13
+__init__	../src/arm_planning/scripts/moveit_obstacles_demo.py	/^    def __init__(self):$/;"	kind:member	line:11
+__init__	../src/arm_planning/scripts/moveit_pick_and_place_demo.py	/^    def __init__(self):$/;"	kind:member	line:26
 _get_workspaces	../devel/_setup_util.py	/^def _get_workspaces(environ, include_fuerte=False, include_non_existing=False):$/;"	kind:function	line:114
 _parse_arguments	../devel/_setup_util.py	/^def _parse_arguments(args=None):$/;"	kind:function	line:250
 _prefix_env_variable	../devel/_setup_util.py	/^def _prefix_env_variable(environ, name, paths, subfolders):$/;"	kind:function	line:149
@@ -43,13 +53,23 @@ find_env_hooks	../devel/_setup_util.py	/^def find_env_hooks(environ, cmake_prefi
 flags	../.ycm_extra_conf.py	/^flags = [$/;"	kind:variable	line:6
 getKey	../src/alpha_description/src/alpha_teleop.py	/^def getKey():$/;"	kind:function	line:42
 lines	../devel/_setup_util.py	/^        lines = []$/;"	kind:variable	line:273
+make_grasps	../src/arm_planning/scripts/moveit_pick_and_place_demo.py	/^    def make_grasps(self, initial_pose_stamped, allowed_touch_objects):$/;"	kind:member	line:270
+make_gripper_posture	../src/arm_planning/scripts/moveit_pick_and_place_demo.py	/^    def make_gripper_posture(self, joint_positions):$/;"	kind:member	line:225
+make_gripper_translation	../src/arm_planning/scripts/moveit_pick_and_place_demo.py	/^    def make_gripper_translation(self, min_dist, desired, vector):$/;"	kind:member	line:251
+make_places	../src/arm_planning/scripts/moveit_pick_and_place_demo.py	/^    def make_places(self, init_pose):$/;"	kind:member	line:317
 moveBindings	../src/alpha_description/src/alpha_teleop.py	/^moveBindings = {$/;"	kind:variable	line:22
 moveit_cartesian_demo.py	../src/arm_planning/scripts/moveit_cartesian_demo.py	1;"	kind:file	line:1
 moveit_fk_demo.py	../src/arm_planning/scripts/moveit_fk_demo.py	1;"	kind:file	line:1
 moveit_ik_demo.py	../src/arm_planning/scripts/moveit_ik_demo.py	1;"	kind:file	line:1
+moveit_obstacles_demo.py	../src/arm_planning/scripts/moveit_obstacles_demo.py	1;"	kind:file	line:1
+moveit_pick_and_place_demo.py	../src/arm_planning/scripts/moveit_pick_and_place_demo.py	1;"	kind:file	line:1
 prepend	../devel/_setup_util.py	/^def prepend(environ, key, prefix):$/;"	kind:function	line:189
 prepend_env_variables	../devel/_setup_util.py	/^def prepend_env_variables(environ, env_var_subfolders, workspaces):$/;"	kind:function	line:129
 rollback_env_variables	../devel/_setup_util.py	/^def rollback_env_variables(environ, env_var_subfolders):$/;"	kind:function	line:62
+sendColors	../src/arm_planning/scripts/moveit_obstacles_demo.py	/^    def sendColors(self):$/;"	kind:member	line:157
+sendColors	../src/arm_planning/scripts/moveit_pick_and_place_demo.py	/^    def sendColors(self):$/;"	kind:member	line:377
+setColor	../src/arm_planning/scripts/moveit_obstacles_demo.py	/^    def setColor(self, name, r, g, b, a = 0.9):$/;"	kind:member	line:142
+setColor	../src/arm_planning/scripts/moveit_pick_and_place_demo.py	/^    def setColor(self, name, r, g, b, a = 0.9):$/;"	kind:member	line:362
 speed	../src/alpha_description/src/alpha_teleop.py	/^speed = 5$/;"	kind:variable	line:53
 speedBindings	../src/alpha_description/src/alpha_teleop.py	/^speedBindings={$/;"	kind:variable	line:33
 system	../devel/_setup_util.py	/^system = platform.system()$/;"	kind:variable	line:48

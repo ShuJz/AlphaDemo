@@ -37,8 +37,9 @@ class MoveItCartesianDemo:
         # 控制机械臂运动到之前设置的“forward”姿态
         arm.set_named_target('forward')
         arm.go()
+        rospy.sleep(10)
         
-        # 获取当前位姿数据最为机械臂运动的起始位姿
+        # 获取当前位姿数据最机械臂运动的起始位姿
         start_pose = arm.get_current_pose(end_effector_link).pose
                 
         # 初始化路点列表
@@ -49,38 +50,44 @@ class MoveItCartesianDemo:
             waypoints.append(start_pose)
             
         # 设置第二个路点数据，并加入路点列表
-        # 第二个路点需要向后运动0.02米，向右运动0.02米
+        # 第二个路点需要向后运动0.01米，向右运动0.01米
         wpose = deepcopy(start_pose)
         wpose.position.x -= 0.1
-        wpose.position.y -= 0.1
-        wpose.position.z -= 0.1
+        wpose.position.y += 0.1
+        wpose.position.z -= 0
 
         if cartesian:
             waypoints.append(deepcopy(wpose))
         else:
+            arm.set_start_state_to_current_state()
             arm.set_pose_target(wpose)
-            arm.go()
-            rospy.sleep(1)
+            traj = arm.plan()
+            arm.execute(traj)            
+            rospy.sleep(10)
          
         # 设置第三个路点数据，并加入路点列表
-        wpose.position.x += 0.005
-        wpose.position.y += 0.015
-        wpose.position.z -= 0.015
+        wpose.position.x += 0
+        wpose.position.y -= 0.1
+        wpose.position.z += 0.1
           
         if cartesian:
             waypoints.append(deepcopy(wpose))
         else:
+            arm.set_start_state_to_current_state()
             arm.set_pose_target(wpose)
-            arm.go()
-            rospy.sleep(1)
+            traj = arm.plan()
+            arm.execute(traj)
+            rospy.sleep(10)
         
         # 设置第四个路点数据，回到初始位置，并加入路点列表
         if cartesian:
             waypoints.append(deepcopy(start_pose))
         else:
+            arm.set_start_state_to_current_state()
             arm.set_pose_target(start_pose)
-            arm.go()
-            rospy.sleep(1)
+            traj = arm.plan()
+            arm.execute(traj)
+            rospy.sleep(10)
             
         if cartesian:
             fraction = 0.0   #路径规划覆盖率
@@ -106,7 +113,7 @@ class MoveItCartesianDemo:
                     rospy.loginfo("Still trying after " + str(attempts) + " attempts...")
                          
             # 如果路径规划成功（覆盖率100%）,则开始控制机械臂运动
-            if fraction == 1.0:
+            if fraction >= 0.99:
                 rospy.loginfo("Path computed successfully. Moving the arm.")
                 arm.execute(plan)
                 rospy.loginfo("Path execution complete.")
@@ -115,9 +122,11 @@ class MoveItCartesianDemo:
                 rospy.loginfo("Path planning failed with only " + str(fraction) + " success after " + str(maxtries) + " attempts.")  
 
         # 控制机械臂回到初始化位置
+        arm.set_start_state_to_current_state()
         arm.set_named_target('home')
-        arm.go()
-        rospy.sleep(1)
+        traj = arm.plan()
+        arm.execute(traj)
+        rospy.sleep(10)
         
         # 关闭并退出moveit
         moveit_commander.roscpp_shutdown()
