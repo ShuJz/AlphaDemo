@@ -433,7 +433,7 @@
     
     <gazebo>
         <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
-            <robotNamespace>/alpha</robotNamespace> 
+            <robotNamespace>/alpha_arm</robotNamespace> 
             <robotBaseFrame>base_footprint</robotBaseFrame>
         </plugin>
     </gazebo> 
@@ -443,7 +443,7 @@
         <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
             <rosDebugLevel>Debug</rosDebugLevel>
             <publishWheelTF>true</publishWheelTF>
-            <robotNamespace>/alpha</robotNamespace>
+            <robotNamespace>/alpha_wheel</robotNamespace>
             <publishTf>1</publishTf>
             <publishWheelJointState>true</publishWheelJointState>
             <alwaysOn>true</alwaysOn>

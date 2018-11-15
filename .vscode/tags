@@ -6,7 +6,7 @@
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
 .ycm_extra_conf.py	../.ycm_extra_conf.py	1;"	kind:file	line:1
 CATKIN_MARKER_FILE	../devel/_setup_util.py	/^CATKIN_MARKER_FILE = '.catkin'$/;"	kind:variable	line:46
-CMAKE_PREFIX_PATH	../devel/_setup_util.py	/^        CMAKE_PREFIX_PATH = '\/home\/jingzhe\/ws_moveit\/devel;\/opt\/ros\/kinetic'.split(';')$/;"	kind:variable	line:265
+CMAKE_PREFIX_PATH	../devel/_setup_util.py	/^        CMAKE_PREFIX_PATH = '\/home\/jingzhe\/catkin_ws\/devel;\/home\/jingzhe\/WorkSpace\/ROS\/AlphaDemo\/devel;\/home\/jingzhe\/WorkSpace\/ROS\/Rostutorials_HuCX\/devel;\/opt\/ros\/kinetic'.split(';')$/;"	kind:variable	line:265
 CMAKE_PREFIX_PATH	../devel/_setup_util.py	/^        CMAKE_PREFIX_PATH = os.pathsep.join(CMAKE_PREFIX_PATH)$/;"	kind:variable	line:270
 DirectoryOfThisScript	../.ycm_extra_conf.py	/^def DirectoryOfThisScript():$/;"	kind:function	line:38
 ENV_VAR_SUBFOLDERS	../devel/_setup_util.py	/^ENV_VAR_SUBFOLDERS = {$/;"	kind:variable	line:53
