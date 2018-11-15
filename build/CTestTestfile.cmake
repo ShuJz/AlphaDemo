@@ -6,5 +6,6 @@
 # testing this directory and lists subdirectories to be tested as well.
 subdirs(gtest)
 subdirs(arm_planning)
+subdirs(alpha_gazebo)
 subdirs(alpha_description)
 subdirs(alpha_moveit_config)

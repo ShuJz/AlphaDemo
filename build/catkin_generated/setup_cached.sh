@@ -7,9 +7,5 @@
 # new environment variables
 
 # modified environment variables
-export CMAKE_PREFIX_PATH="/home/jingzhe/WorkSpace/ROS/AlphaDemo/devel:$CMAKE_PREFIX_PATH"
-export LD_LIBRARY_PATH="/home/jingzhe/WorkSpace/ROS/AlphaDemo/devel/lib:$LD_LIBRARY_PATH"
-export PKG_CONFIG_PATH="/home/jingzhe/WorkSpace/ROS/AlphaDemo/devel/lib/pkgconfig:$PKG_CONFIG_PATH"
 export PWD="/home/jingzhe/WorkSpace/ROS/AlphaDemo/build"
-export ROSLISP_PACKAGE_DIRECTORIES="/home/jingzhe/WorkSpace/ROS/AlphaDemo/devel/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
-export ROS_PACKAGE_PATH="/home/jingzhe/WorkSpace/ROS/AlphaDemo/src:$ROS_PACKAGE_PATH"
+export ROS_PACKAGE_PATH="/home/jingzhe/catkin_ws/src:/home/jingzhe/WorkSpace/ROS/AlphaDemo/src:/home/jingzhe/WorkSpace/ROS/Rostutorials_HuCX/src:/opt/ros/kinetic/share"

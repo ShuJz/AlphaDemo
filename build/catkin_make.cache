@@ -1,2 +1,2 @@
-alpha_description:alpha_moveit_config:arm_planning
+alpha_description:alpha_gazebo:alpha_moveit_config:arm_planning
 -DCATKIN_DEVEL_PREFIX=/home/jingzhe/WorkSpace/ROS/AlphaDemo/devel -DCMAKE_INSTALL_PREFIX=/home/jingzhe/WorkSpace/ROS/AlphaDemo/install -G Unix Makefiles

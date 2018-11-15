@@ -118,6 +118,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/jingzhe/WorkSpace/ROS/AlphaDemo/build/gtest/cmake_install.cmake")
   include("/home/jingzhe/WorkSpace/ROS/AlphaDemo/build/arm_planning/cmake_install.cmake")
+  include("/home/jingzhe/WorkSpace/ROS/AlphaDemo/build/alpha_gazebo/cmake_install.cmake")
   include("/home/jingzhe/WorkSpace/ROS/AlphaDemo/build/alpha_description/cmake_install.cmake")
   include("/home/jingzhe/WorkSpace/ROS/AlphaDemo/build/alpha_moveit_config/cmake_install.cmake")
 
