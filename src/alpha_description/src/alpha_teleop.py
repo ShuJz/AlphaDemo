@@ -125,6 +125,7 @@ if __name__=="__main__":
                 control_turn = target_turn
 
             # 创建并发布twist消息
+            print ("speed is: %f/nturn is: %f" %(control_speed,control_turn))
             twist = Twist()
             twist.linear.x = control_speed; 
             twist.linear.y = 0; 

@@ -7,5 +7,5 @@
     <!-- Arbotix -->
     <rosparam file="$(find alpha_moveit_config)/config/controllers.yaml"/>
     <!-- Gazebo -->
-    <!-- <rosparam file="$(find alpha_moveit_config)/config/controllers_gazebo.yaml"/> -->">
+    <rosparam file="$(find alpha_moveit_config)/config/controllers_gazebo.yaml"/>
 </launch>
